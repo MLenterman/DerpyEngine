@@ -1,0 +1,5 @@
+File,Function,LOC,SLOC-P,SLOC-L,MVG,BLOC,C&SLOC,CLOC,CWORD
+C:\Users\MARCEL-MSI\Dropbox\Hobby\Programmeren\DerpyEngine-Core\DerpyEngine\Source\Main.cpp,main(),71,59,53,7,11,0,1,4,
+C:\Users\MARCEL-MSI\Dropbox\Hobby\Programmeren\DerpyEngine-Core\DerpyEngine\Source\Utils\Loaders\ObjLoader.cpp,parseVertex(String line),6,6,6,1,0,0,0,0,
+C:\Users\MARCEL-MSI\Dropbox\Hobby\Programmeren\DerpyEngine-Core\DerpyEngine\Source\Utils\Loaders\ObjLoader.cpp,parseNormal(String line),6,6,6,1,0,0,0,0,
+C:\Users\MARCEL-MSI\Dropbox\Hobby\Programmeren\DerpyEngine-Core\DerpyEngine\Source\Utils\Loaders\ObjLoader.cpp,"parseFace(boolean hasNormals, String line)",14,14,12,3,0,0,0,0,

@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{88C45670-98FC-4F04-9C19-323E58F5EAA6}</ProjectGuid>
+    <RootNamespace>DerpyEngine</RootNamespace>
+    <ProjectName>DerpyEngine</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)\DerpyEngine\Dependencies\GLFW\include\;$(SolutionDir)\DerpyEngine\Dependencies\GLEW\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\DerpyEngine\Dependencies\GLFW\lib-vc2013\;$(SolutionDir)\DerpyEngine\Dependencies\GLEW\lib\;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)\DerpyEngine\Dependencies\GLFW\include\;$(SolutionDir)\DerpyEngine\Dependencies\GLEW\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\DerpyEngine\Dependencies\GLFW\lib-vc2013\;$(SolutionDir)\DerpyEngine\Dependencies\GLEW\lib\;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Engine.cpp" />
+    <ClCompile Include="Source\Graphics\Buffers\Buffer.cpp" />
+    <ClCompile Include="Source\Graphics\Buffers\IndexBuffer.cpp" />
+    <ClCompile Include="Source\Graphics\Buffers\VertexArray.cpp" />
+    <ClCompile Include="Source\Graphics\Colors\Color.cpp" />
+    <ClCompile Include="Source\Graphics\Layers\Group.cpp" />
+    <ClCompile Include="Source\Graphics\Layers\Layer.cpp" />
+    <ClCompile Include="Source\Graphics\Models\Material.cpp" />
+    <ClCompile Include="Source\Graphics\Rendering\BatchRenderer2D.cpp" />
+    <ClCompile Include="Source\Graphics\Rendering\Model.cpp" />
+    <ClCompile Include="Source\Graphics\Shaders\Shader.cpp" />
+    <ClCompile Include="Source\Graphics\Sprites\Sprite.cpp" />
+    <ClCompile Include="Source\Graphics\Textures\Image.cpp" />
+    <ClCompile Include="Source\Graphics\Textures\Texture_GL.cpp" />
+    <ClCompile Include="Source\Graphics\Vertex\Vertex3D.cpp" />
+    <ClCompile Include="Source\Graphics\Window.cpp" />
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Maths\Mat4f.cpp" />
+    <ClCompile Include="Source\Maths\Vec2f.cpp" />
+    <ClCompile Include="Source\Maths\Vec3f.cpp" />
+    <ClCompile Include="Source\Maths\Vec4f.cpp" />
+    <ClCompile Include="Source\Utils\ImageUtils.cpp" />
+    <ClCompile Include="Source\Utils\Loaders\ObjLoader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Assets\AssetManager.h" />
+    <ClInclude Include="Source\Collections\AttributeMap\AttributeMap.h" />
+    <ClInclude Include="Source\Collections\AttributeMap\Attributes.h" />
+    <ClInclude Include="Source\Engine.h" />
+    <ClInclude Include="Source\Graphics\Textures\TextureHelper.h" />
+    <ClInclude Include="Source\Graphics\Buffers\Buffer.h" />
+    <ClInclude Include="Source\Graphics\Buffers\IndexBuffer.h" />
+    <ClInclude Include="Source\Graphics\Buffers\VertexArray.h" />
+    <ClInclude Include="Source\Graphics\Colors\Color.h" />
+    <ClInclude Include="Source\Graphics\Colors\ColorUtils.h" />
+    <ClInclude Include="Source\Graphics\Layers\Group.h" />
+    <ClInclude Include="Source\Graphics\Layers\Layer.h" />
+    <ClInclude Include="Source\Graphics\Buffers\MeshBuffer.h" />
+    <ClInclude Include="Source\Graphics\Models\Material.h" />
+    <ClInclude Include="Source\Graphics\Rendering\BatchRenderer2D.h" />
+    <ClInclude Include="Source\Graphics\Rendering\Model.h" />
+    <ClInclude Include="Source\Graphics\Rendering\Renderable2D.h" />
+    <ClInclude Include="Source\Graphics\Rendering\Renderable3D.h" />
+    <ClInclude Include="Source\Graphics\Rendering\Renderer2D.h" />
+    <ClInclude Include="Source\Graphics\Shaders\Shader.h" />
+    <ClInclude Include="Source\Graphics\Sprites\Sprite.h" />
+    <ClInclude Include="Source\Graphics\Textures\Image.h" />
+    <ClInclude Include="Source\Graphics\Textures\ITexture.h" />
+    <ClInclude Include="Source\Graphics\Textures\Texture_GL.h" />
+    <ClInclude Include="Source\Graphics\Vertex\Vertex3D.h" />
+    <ClInclude Include="Source\Graphics\Window.h" />
+    <ClInclude Include="Source\Maths\Mat4f.h" />
+    <ClInclude Include="Source\Maths\Maths.h" />
+    <ClInclude Include="Source\Maths\Math_Funcs.h" />
+    <ClInclude Include="Source\Maths\Vec2f.h" />
+    <ClInclude Include="Source\Maths\Vec3f.h" />
+    <ClInclude Include="Source\Maths\Vec4f.h" />
+    <ClInclude Include="Source\System\EGraphicsDriver.h" />
+    <ClInclude Include="Source\System\GraphicsDriver_GL.h" />
+    <ClInclude Include="Source\System\IGraphicsDriver.h" />
+    <ClInclude Include="Source\Utils\ByteUtils.h" />
+    <ClInclude Include="Source\Utils\File_Utils.h" />
+    <ClInclude Include="Source\Utils\ImageUtils.h" />
+    <ClInclude Include="Source\Utils\Loaders\ObjLoader.h" />
+    <ClInclude Include="Source\Utils\MemoryUtils.h" />
+    <ClInclude Include="Source\Utils\Timer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shaders\Basic.frag" />
+    <None Include="Resources\Shaders\Basic.vert" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
