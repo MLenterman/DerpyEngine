@@ -109,6 +109,7 @@ namespace Derpy { namespace Graphics {
 			return Color(0);
 
 		unsigned long index = y * m_Width + x;
+		unsigned char* pixel;
 		switch (m_Format){
 		case EColorFormat::A1R5G5B5:
 			return ColorUtils::fromA1R5G5B5toA8R8G8B8(((unsigned short*)m_ImageData)[index]);
@@ -117,30 +118,30 @@ namespace Derpy { namespace Graphics {
 		case EColorFormat::A8R8G8B8:
 			return ((unsigned int*)m_ImageData)[index];
 		case EColorFormat::R8G8B8:
-			unsigned char* pixel = m_ImageData + (y * 3) * m_Width + (x * 3);
+			pixel = m_ImageData + (y * 3) * m_Width + (x * 3);
 			return Color(255, *pixel, *++pixel, *++pixel);
 		default:
 			return Color(0);
 		}
 	}
 
-	void Image::setPixel(unsigned int x, unsigned int y, const Color &color, bool blend = false){
+	void Image::setPixel(unsigned int x, unsigned int y, const Color &color, bool blend){
 		if (x >= m_Width || y >= m_Height)
 			return;
-
+		unsigned short* destPixel;
 		switch (m_Format){
 		case EColorFormat::A1R5G5B5:
-			unsigned short* destPixel = (unsigned short*)(m_ImageData + (y * m_Stride) + (x << 1));
+			destPixel = (unsigned short*)(m_ImageData + (y * m_Stride) + (x << 1));
 			*destPixel = ColorUtils::fromA8R8G8B8toA1R5G5B5(color.color);
 			break;
 
 		case EColorFormat::R5G6B5:
-			unsigned short* destPixel = (unsigned short*)(m_ImageData + (y * m_Stride) + (x << 1));
+			destPixel = (unsigned short*)(m_ImageData + (y * m_Stride) + (x << 1));
 			*destPixel = ColorUtils::fromA8R8G8B8toR5G6B5(color.color);
 			break;
 
 		case EColorFormat::R8G8B8:
-			unsigned char* destPixel = m_ImageData + (y * m_Stride) + (x * 3);
+			destPixel = (unsigned short*)(m_ImageData + (y * m_Stride) + (x * 3));
 			*destPixel = (unsigned char)color.getRed();
 			*++destPixel = (unsigned char)color.getGreen();
 			*++destPixel = (unsigned char)color.getBlue();
@@ -156,7 +157,7 @@ namespace Derpy { namespace Graphics {
 		}
 	}
 
-	void Image::copyToScaling(void* target, unsigned int width, unsigned int height, EColorFormat format, unsigned int stride = 0){
+	void Image::copyToScaling(void* target, unsigned int width, unsigned int height, EColorFormat format, unsigned int stride){
 
 	}
 
@@ -164,26 +165,27 @@ namespace Derpy { namespace Graphics {
 
 	}
 
-	void Image::copyTo(Image* target, const int& width = 0, const int& height = 0){
+	void Image::copyTo(Image* target, const int& width, const int& height){
 
 	}
 
 	void Image::copyTo(Image* target, const int& posX, const int& posY, const int& sourceRectX, const int& sourceRectY,
-		const int* clipRectX = 0, const int* clipRectY = 0){
+		const int* clipRectX, const int* clipRectY){
 
 	}
 
 	void Image::copyToWithAlpha(Image* target, const int& posX, const int& posY, const int& sourceRectX, const int& sourceRectY,
-		const Color& color, const int* clipRectX = 0, const int* clipRectY = 0){
+		const Color& color, const int* clipRectX, const int* clipRectY){
 
 	}
 
-	void Image::copyToScalingBoxFilter(Image* target, unsigned int bias = 0, bool blend = false){
+	void Image::copyToScalingBoxFilter(Image* target, unsigned int bias, bool blend){
 
 	}
 
 	void Image::fill(const Color &color){
 		unsigned int col;
+		unsigned int size;
 
 		switch (m_Format){
 		case EColorFormat::A1R5G5B5:
@@ -201,11 +203,11 @@ namespace Derpy { namespace Graphics {
 			break;
 
 		case EColorFormat::R8G8B8:
-			unsigned char rgb[3];
+			unsigned char* rgb[3];
 			//ColorUtils::fromA8R8G8B8toR8G8B8(&color, 1, rgb);
-			const unsigned int size = getImageDataSize();
+			size = getImageDataSize();
 			for (unsigned int i = 0; i < size; i += 3)
-				memcpy(m_ImageData + i, rgb, 3);
+				memcpy(m_ImageData + i, *rgb, 3);
 			return;
 
 		default:

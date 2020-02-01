@@ -44,8 +44,8 @@ namespace Derpy { namespace Graphics {
 				(color & 0x000000F8) >> 3);
 		}
 		
-		static inline unsigned int fromA1R5G5B5toA8R8G8B8(unsigned short color){
-			return (((-((unsigned int)color & 0x00008000) >> (unsigned int)31) & 0xFF000000) |
+		static inline unsigned int fromA1R5G5B5toA8R8G8B8(unsigned short color){ /// minus
+			return (((((unsigned int)color & 0x00008000) >> (unsigned int)31) & 0xFF000000) |
 				((color & 0x00007C00) << 9) | ((color & 0x00007000) << 4) |
 				((color & 0x000003E0) << 6) | ((color & 0x00000380) << 1) |
 				((color & 0x0000001F) << 3) | ((color & 0x0000001C) >> 2));

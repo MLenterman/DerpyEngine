@@ -5,7 +5,7 @@
 #include "../Buffers/VertexArray.h"
 
 #include "Renderer2D.h"
-#include "../Textures/Texture.h"
+#include "../Textures/ITexture.h"
 
 #include "../../Maths/Maths.h"
 #include "../Shaders/Shader.h"
@@ -25,7 +25,7 @@ namespace Derpy { namespace Graphics {
 		Maths::Vec2f m_Size;
 		unsigned int m_Color;
 		std::vector<Maths::Vec2f> m_UV;
-		Texture* m_Texture;
+		ITexture* m_Texture;
 	protected:
 		Renderable2D() : m_Texture(nullptr) { setUVDefaults(); }
 	public:

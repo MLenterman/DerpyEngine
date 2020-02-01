@@ -4,13 +4,13 @@
 #include "../Buffers/IndexBuffer.h"
 #include "../Buffers/VertexArray.h"
 
-#include "../Textures/Texture.h"
+#include "../Textures/ITexture.h"
 
 #include "../../Maths/Maths.h"
 #include "../Shaders/Shader.h"
 
+	/*
 namespace Derpy { namespace Graphics {
-
 	class Renderable3D{
 	protected:
 		std::vector<Maths::Vec3f> m_Vertices;
@@ -64,3 +64,4 @@ namespace Derpy { namespace Graphics {
 
 
 } }
+*/

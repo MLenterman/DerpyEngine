@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Colors/Color.h"
-#include "../../System/GraphicsDriver.h"
+#include "../../System/IGraphicsDriver.h"
 
 namespace Derpy { namespace Graphics {
 
@@ -37,6 +37,8 @@ namespace Derpy { namespace Graphics {
 
 		virtual void getOriginalSize(int& width, int& height) const = 0;
 		virtual void getSize(int& width, int& height) const = 0;
+
+		virtual int getID() const = 0;
 
 		
 		virtual EColorFormat getColorFormat() const = 0;

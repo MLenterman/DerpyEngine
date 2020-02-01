@@ -28,20 +28,20 @@ int main(){
 	shader.enable();
 	shader.setUniform2f("light_pos", Vec2f(4.0f, 1.5f));
 	shader.setUniform4f("colour", Vec4f(0.2f, 0.3f, 0.8f, 1.0f));
-	shader.setUniformMat4("pr_matrix", proj);
+	shader.setUniformMat4("pr_matrix", ortho);
 
 	srand(time(NULL));
 
 	BatchRenderer2D* renderer = new BatchRenderer2D();
 
-	Layer layer(renderer, &shader, proj);
-	for (float y = -9.0f; y < 9.0f; y++){
-		for (float x = -16.0f; x < 16.0f; x++){
+	Layer layer(renderer, &shader, ortho);
+	for (float y = -9.0f; y < 9.0f; y += 0.1){
+		for (float x = -16.0f; x < 16.0f; x += 0.1){
 			int b = rand() % 255;
 			int g = rand() % 255;
 			int r = rand() % 255;
 			unsigned int col = 255 << 24 | b << 16 | g << 8 | r;
-			layer.add(new Sprite(x, y, 0.9f, 0.9f, col));
+			layer.add(new Sprite(x, y, 0.09f, 0.09f, col));
 		}
 	}
 
@@ -65,7 +65,7 @@ int main(){
 			zoomMatrix = Mat4f::scale(zoom);
 		}
 
-		shader.setUniformMat4("pr_matrix", proj *= zoomMatrix);
+		shader.setUniformMat4("pr_matrix", ortho *= zoomMatrix);
 			
 
 		layer.render();

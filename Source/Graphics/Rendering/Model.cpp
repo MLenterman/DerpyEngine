@@ -1,5 +1,5 @@
 #include "Model.h"
-
+/*
 namespace Derpy { namespace Graphics {
 
 		Model::Model(float x, float y, float z, float width, float height, float depth, unsigned int color)
@@ -12,4 +12,4 @@ namespace Derpy { namespace Graphics {
 			m_Texture = texture;
 		}
 
-} }
+} }*/

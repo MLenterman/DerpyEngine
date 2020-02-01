@@ -1,5 +1,5 @@
 #include "Engine.h"
-
+/*
 namespace Derpy {
 
 	System::IGraphicsDriver* Engine::getGraphicsDriver() const{
@@ -21,4 +21,4 @@ namespace Derpy {
 	}
 
 
-}
+}*/

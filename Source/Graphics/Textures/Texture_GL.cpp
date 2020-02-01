@@ -1,7 +1,7 @@
 #include "Texture_GL.h"
 
 namespace Derpy { namespace Graphics {
-	Texture_GL::Texture_GL(const char* textureName, Image* image, void* mipmapData = NULL, Assets::AssetManager* manager = NULL)
+	Texture_GL::Texture_GL(const char* textureName, Image* image, void* mipmapData, Assets::AssetManager* manager)
 		: ITexture(textureName), m_ColorFormat(EColorFormat::A8R8G8B8), m_AssetManager(manager), m_Image(NULL), m_MipMapImage(NULL),
 			m_TextureId(0), m_InternalFormat(GL_RGBA), m_PixelFormat(GL_BGRA_EXT),
 			m_PixelType(GL_UNSIGNED_BYTE), m_MipLevelStored(0), m_IsRenderTarget(false),
@@ -30,7 +30,7 @@ namespace Derpy { namespace Graphics {
 
 	}
 
-	Texture_GL::Texture_GL(const char* textureName, Assets::AssetManager* manager = NULL)
+	Texture_GL::Texture_GL(const char* textureName, Assets::AssetManager* manager)
 		: ITexture(textureName), m_ColorFormat(EColorFormat::A8R8G8B8), m_AssetManager(manager), m_Image(NULL), m_MipMapImage(NULL),
 		m_TextureId(0), m_InternalFormat(GL_RGBA), m_PixelFormat(GL_BGRA_EXT),
 		m_PixelType(GL_UNSIGNED_BYTE), m_MipLevelStored(0), m_IsRenderTarget(false),
@@ -43,15 +43,15 @@ namespace Derpy { namespace Graphics {
 	}
 
 	System::EGraphicsDriver Texture_GL::getDriverType() const{
-
+		return System::EGraphicsDriver::OPENGL;
 	}
 
-	void* Texture_GL::lock(ETextureLockMode mode = ETextureLockMode::READ_WRITE, unsigned int mipmapLevel = 0){
-
+	void* Texture_GL::lock(ETextureLockMode mode, unsigned int mipmapLevel){
+		return NULL;
 	}
 
 	void Texture_GL::unlock(){
-
+		
 	}
 
 	void Texture_GL::getOriginalSize(int& width, int& height) const{
@@ -63,23 +63,23 @@ namespace Derpy { namespace Graphics {
 	}
 
 	EColorFormat Texture_GL::getColorFormat() const{
-
+		return EColorFormat::A1R5G5B5;
 	}
 
 	bool Texture_GL::hasAlpha() const{
-
+		return false;
 	}
 
 	bool Texture_GL::hasMipMaps() const{
-
+		return false;
 	}
 
-	void Texture_GL::regenerateMipMapLevels(void* mipmapData = 0){
+	void Texture_GL::regenerateMipMapLevels(void* mipmapData){
 
 	}
 
 	bool Texture_GL::isRenderTarget() const{
-
+		return false;
 	}
 
 	void Texture_GL::setIsRenderTarget(bool isTarget){
@@ -87,7 +87,7 @@ namespace Derpy { namespace Graphics {
 	}
 
 	bool Texture_GL::isFrameBufferObject() const{
-
+		return false;
 	}
 
 	void Texture_GL::bindRenderTargetTexture(){
@@ -99,7 +99,7 @@ namespace Derpy { namespace Graphics {
 	}
 
 	GLuint Texture_GL::getOpenGLTextureName() const{
-
+		return 0;
 	}
 
 	void Texture_GL::getImageValues(Image* image){
@@ -126,7 +126,7 @@ namespace Derpy { namespace Graphics {
 		m_ColorFormat = image->getColorFormat(); // TODO: IMPLEMENT TEXTURE CREATION FLAG FOR OPTIMIZING
 	}
 
-	void Texture_GL::uploadTexture(bool newTexture = false, void* mipmapData = NULL, unsigned int mipLevel = 0){
+	void Texture_GL::uploadTexture(bool newTexture, void* mipmapData, unsigned int mipLevel){
 
 	}
 

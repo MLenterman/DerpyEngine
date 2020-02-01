@@ -2,6 +2,7 @@
 
 #include "../Rendering/Renderable3D.h"
 
+/*
 namespace Derpy { namespace Graphics {
 
 		class Model : public Renderable3D{
@@ -13,3 +14,5 @@ namespace Derpy { namespace Graphics {
 		};
 
 } }
+
+*/

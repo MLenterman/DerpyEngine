@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "../../Graphics/Rendering/Renderable3D.h"
-
+/*
 namespace Derpy { namespace Utils {
 
 	class ObjLoader{
@@ -27,3 +27,4 @@ namespace Derpy { namespace Utils {
 
 
 } }
+*/

@@ -1,5 +1,5 @@
 #include "ObjLoader.h"
-
+/*
 private static Vector3f parseVertex(String line) {
 	String[] xyz = line.split(" ");
 	float x = Float.valueOf(xyz[1]);
@@ -57,3 +57,4 @@ public static Model loadModel(File f) throws IOException{
 	reader.close();
 	return m;
 }
+*/

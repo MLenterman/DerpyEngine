@@ -8,8 +8,8 @@ namespace Derpy { namespace Assets {
 
 	class AssetManager{
 	public:
-		static Graphics::Image* createImage(unsigned int& width, unsigned int& height, Graphics::EColorFormat format);
-		static bool getTextureCreationFlag(Graphics::ETextureCreationFlag flag);
+		static Graphics::Image* createImage(unsigned int& width, unsigned int& height, Graphics::EColorFormat format) { return NULL; };
+		static bool getTextureCreationFlag(Graphics::ETextureCreationFlag flag) { return false; };
 	};
 
 

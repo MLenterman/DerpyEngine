@@ -2,7 +2,7 @@
 
 namespace Derpy { namespace Utils {
 
-	void ImageUtils::convert1BitTo16Bit(const unsigned char* in, short* out, int width, int height, int linepad = 0, bool flip = false){
+	void ImageUtils::convert1BitTo16Bit(const unsigned char* in, short* out, int width, int height, int linepad, bool flip){
 		if (!in || !out)
 			return;
 
@@ -34,7 +34,7 @@ namespace Derpy { namespace Utils {
 		}
 	}
 
-	void ImageUtils::convert4BitTo16Bit(const unsigned char* in, short* out, int width, int height, const int* palette, int linepad = 0, bool flip = false){
+	void ImageUtils::convert4BitTo16Bit(const unsigned char* in, short* out, int width, int height, const int* palette, int linepad, bool flip){
 		if (!in || !out || !palette)
 			return;
 
@@ -68,7 +68,7 @@ namespace Derpy { namespace Utils {
 		}
 	}
 
-	void ImageUtils::convert8BitTo16Bit(const unsigned char* in, short* out, int width, int height, const int* palette, int linepad = 0, bool flip = false){
+	void ImageUtils::convert8BitTo16Bit(const unsigned char* in, short* out, int width, int height, const int* palette, int linepad, bool flip){
 		if (!in || !out || !palette)
 			return;
 
@@ -91,7 +91,7 @@ namespace Derpy { namespace Utils {
 		}
 	}
 
-	void ImageUtils::convert8BitTo24Bit(const unsigned char* in, unsigned char* out, int width, int height, const unsigned char* palette, int linepad = 0, bool flip = false){
+	void ImageUtils::convert8BitTo24Bit(const unsigned char* in, unsigned char* out, int width, int height, const unsigned char* palette, int linepad, bool flip){
 		if (!in || !out)
 			return;
 
@@ -132,7 +132,7 @@ namespace Derpy { namespace Utils {
 		}
 	}
 
-	void ImageUtils::convert8BitTo32Bit(const unsigned char* in, unsigned char* out, int width, int height, const unsigned char* palette, int linepad = 0, bool flip = false){
+	void ImageUtils::convert8BitTo32Bit(const unsigned char* in, unsigned char* out, int width, int height, const unsigned char* palette, int linepad, bool flip){
 		if (!in || !out)
 			return;
 
@@ -172,7 +172,7 @@ namespace Derpy { namespace Utils {
 		}
 	}
 
-	void ImageUtils::convert16BitTo16Bit(const short* in, short* out, int width, int height, int linepad = 0, bool flip = false){
+	void ImageUtils::convert16BitTo16Bit(const short* in, short* out, int width, int height, int linepad, bool flip){
 		if (!in || !out)
 			return;
 
@@ -197,7 +197,7 @@ namespace Derpy { namespace Utils {
 		}
 	}
 
-	void ImageUtils::convert24BitTo24Bit(const unsigned char* in, unsigned char* out, int width, int height, int linepad = 0, bool flip = false, bool bgr = false){
+	void ImageUtils::convert24BitTo24Bit(const unsigned char* in, unsigned char* out, int width, int height, int linepad, bool flip, bool bgr){
 		if (!in || !out)
 			return;
 
@@ -252,7 +252,7 @@ namespace Derpy { namespace Utils {
 		}
 	}
 
-	void ImageUtils::convert32BitTo32Bit(const int* in, int* out, int width, int height, int linepad, bool flip = false){
+	void ImageUtils::convert32BitTo32Bit(const int* in, int* out, int width, int height, int linepad, bool flip){
 		if (!in || !out)
 			return;
 
