@@ -1,3 +1,5 @@
+#include <memory>
+
 #include "Graphics/Window.h"
 #include "Graphics/Shaders/Shader.h"
 #include "Maths/Maths.h"
